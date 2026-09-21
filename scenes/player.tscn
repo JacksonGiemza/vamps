@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bj0fmow63xv7c"]
+
+[ext_resource type="Script" uid="uid://pit4ie113f7y" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://bkau4xnw87e5t" path="res://assets/fat-night.png" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://d0xssec4bbf5j" path="res://scenes/death_screen.tscn" id="2_qhqgy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g36yv"]
+radius = 6.0827627
+
+[node name="player" type="CharacterBody2D" unique_id=1166148910 groups=["Player"]]
+script = ExtResource("1_3vyb7")
+death_screen = ExtResource("2_qhqgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1017531890]
+position = Vector2(2.0000002, -2)
+scale = Vector2(0.3671875, 0.34375)
+texture = ExtResource("2_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=225971921]
+shape = SubResource("CircleShape2D_g36yv")
+
+[node name="WeaponSlot" type="Node2D" parent="." unique_id=1598369549]
+position = Vector2(6, 0)

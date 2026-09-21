@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cco80f7n0rvkm"]
+
+[ext_resource type="Script" uid="uid://b5urh461dlt4h" path="res://scripts/xp.gd" id="1_8cwu2"]
+[ext_resource type="Texture2D" uid="uid://dy7fti5n8ryfw" path="res://assets/xp.png" id="1_xi7dx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xi7dx"]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g36yv"]
+radius = 5.0
+
+[node name="xp" type="CharacterBody2D" unique_id=957798151]
+script = ExtResource("1_8cwu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1327126510]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_xi7dx")
+
+[node name="AttractionArea" type="Area2D" parent="." unique_id=1990642900]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractionArea" unique_id=1249163680]
+shape = SubResource("CircleShape2D_xi7dx")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=1659223332]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=1837614652]
+shape = SubResource("CircleShape2D_g36yv")
+
+[connection signal="body_entered" from="AttractionArea" to="." method="_on_attraction_area_body_entered"]
+[connection signal="body_exited" from="AttractionArea" to="." method="_on_attraction_area_body_exited"]
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]

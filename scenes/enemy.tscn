@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c6503dtxg6gk2"]
+
+[ext_resource type="Script" uid="uid://c3t0mfirh3vp5" path="res://scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="PackedScene" uid="uid://cco80f7n0rvkm" path="res://scenes/xp.tscn" id="2_md0e3"]
+[ext_resource type="PackedScene" uid="uid://bfqv1umd1dk58" path="res://scenes/heart.tscn" id="3_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://bx4kyfhilxe5l" path="res://assets/skel.png" id="4_5uy6h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g36yv"]
+radius = 11.0
+
+[node name="enemy" type="CharacterBody2D" unique_id=614241745 groups=["enemy"]]
+script = ExtResource("1_7p1mj")
+xp = ExtResource("2_md0e3")
+heart = ExtResource("3_4ra3w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=601437270]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_5uy6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2084318068]
+shape = SubResource("CircleShape2D_g36yv")

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bfqv1umd1dk58"]
+
+[ext_resource type="Texture2D" uid="uid://cxh4t50ybrr4t" path="res://assets/heart-Sheet.png" id="1_v30as"]
+[ext_resource type="Script" uid="uid://y46e2rv8jkps" path="res://scripts/heart.gd" id="1_ycbwg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycbwg"]
+atlas = ExtResource("1_v30as")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krgnv"]
+atlas = ExtResource("1_v30as")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htlxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krgnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krgnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbwg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g36yv"]
+radius = 76.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htlxk"]
+radius = 11.0
+
+[node name="Heart" type="CharacterBody2D" unique_id=1872847585]
+script = ExtResource("1_ycbwg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=480883883]
+sprite_frames = SubResource("SpriteFrames_htlxk")
+autoplay = "default"
+frame_progress = 0.0073933867
+
+[node name="AttractionArea" type="Area2D" parent="." unique_id=2058194732]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractionArea" unique_id=1466571753]
+shape = SubResource("CircleShape2D_g36yv")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=1231271894]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=469116697]
+shape = SubResource("CircleShape2D_htlxk")
+
+[connection signal="body_entered" from="AttractionArea" to="." method="_on_attraction_area_body_entered"]
+[connection signal="body_exited" from="AttractionArea" to="." method="_on_attraction_area_body_exited"]
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]

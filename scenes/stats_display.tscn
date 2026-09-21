@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://hiek5s65fiae"]
+
+[ext_resource type="Script" uid="uid://d2m8307q75kv4" path="res://scripts/stats_display.gd" id="1_3q2kr"]
+
+[node name="StatsDisplay" type="CanvasLayer" unique_id=338004301]
+script = ExtResource("1_3q2kr")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1049716025]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1380062750]
+layout_mode = 2
+
+[node name="Health" type="Label" parent="MarginContainer/VBoxContainer" unique_id=49178042]
+layout_mode = 2
+
+[node name="XP" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1682555148]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1039675705]
+layout_mode = 2
+
+[node name="Kills" type="Label" parent="MarginContainer/VBoxContainer" unique_id=470225597]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1108816422]
+layout_mode = 2
