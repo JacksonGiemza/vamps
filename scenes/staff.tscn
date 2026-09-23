@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://crxcrx5wb6eap"]
+
+[ext_resource type="PackedScene" uid="uid://dmt4flakg13hq" path="res://scenes/projectile_launcher.tscn" id="1_0mpdh"]
+[ext_resource type="Script" uid="uid://b1jv5cjfreso" path="res://scripts/staff.gd" id="1_3gxsk"]
+[ext_resource type="PackedScene" uid="uid://7k7tylmamsdf" path="res://scenes/magic_projectile.tscn" id="3_ov8dy"]
+
+[node name="Staff" type="Node2D" unique_id=656610813]
+script = ExtResource("1_3gxsk")
+
+[node name="ProjectileLauncher" parent="." unique_id=1053563209 instance=ExtResource("1_0mpdh")]
+projectile_scene = ExtResource("3_ov8dy")

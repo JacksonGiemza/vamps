@@ -3,7 +3,37 @@
 [ext_resource type="Script" uid="uid://c3t0mfirh3vp5" path="res://scripts/enemy.gd" id="1_7p1mj"]
 [ext_resource type="PackedScene" uid="uid://cco80f7n0rvkm" path="res://scenes/xp.tscn" id="2_md0e3"]
 [ext_resource type="PackedScene" uid="uid://bfqv1umd1dk58" path="res://scenes/heart.tscn" id="3_4ra3w"]
-[ext_resource type="Texture2D" uid="uid://bx4kyfhilxe5l" path="res://assets/skel.png" id="4_5uy6h"]
+[ext_resource type="Texture2D" uid="uid://bqxulamasw48g" path="res://assets/sprites/ghool-walk-Sheet.png" id="4_5uy6h"]
+[ext_resource type="AudioStream" uid="uid://kgslknca1y2r" path="res://assets/audio/death.ogg" id="5_c4w8v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("4_5uy6h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("4_5uy6h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nenq2"]
+atlas = ExtResource("4_5uy6h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g36yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nenq2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g36yv"]
 radius = 11.0
@@ -13,9 +43,13 @@ script = ExtResource("1_7p1mj")
 xp = ExtResource("2_md0e3")
 heart = ExtResource("3_4ra3w")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=601437270]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_5uy6h")
+[node name="enemySprite" type="AnimatedSprite2D" parent="." unique_id=592703230]
+sprite_frames = SubResource("SpriteFrames_g36yv")
+autoplay = "default"
+frame_progress = 0.92976844
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2084318068]
 shape = SubResource("CircleShape2D_g36yv")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=429880517]
+stream = ExtResource("5_c4w8v")

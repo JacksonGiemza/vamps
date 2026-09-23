@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkau4xnw87e5t"
-path="res://.godot/imported/fat-night.png-e25b9c5f225e953706006903780411eb.ctex"
+uid="uid://bbojrw0i3ru0k"
+path="res://.godot/imported/staff.png-bfbced8a131f2db124a0deb81dc28c07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fat-night.png"
-dest_files=["res://.godot/imported/fat-night.png-e25b9c5f225e953706006903780411eb.ctex"]
+source_file="res://assets/sprites/staff.png"
+dest_files=["res://.godot/imported/staff.png-bfbced8a131f2db124a0deb81dc28c07.ctex"]
 
 [params]
 

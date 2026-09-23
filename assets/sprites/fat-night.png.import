@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://he3450ekd5y6"
-path="res://.godot/imported/grass.png-a207bda4a53e32c7645a41ec6d1c234e.ctex"
+uid="uid://bkau4xnw87e5t"
+path="res://.godot/imported/fat-night.png-9fd7000f5683080d0a5baa234439c262.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/grass.png"
-dest_files=["res://.godot/imported/grass.png-a207bda4a53e32c7645a41ec6d1c234e.ctex"]
+source_file="res://assets/sprites/fat-night.png"
+dest_files=["res://.godot/imported/fat-night.png-9fd7000f5683080d0a5baa234439c262.ctex"]
 
 [params]
 

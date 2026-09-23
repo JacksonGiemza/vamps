@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://pt2v6mvqhhfk"]
 
 [ext_resource type="Script" uid="uid://ubu47a332qdt" path="res://scripts/sword.gd" id="1_n355p"]
-[ext_resource type="Texture2D" uid="uid://b7writavo8oj6" path="res://assets/sprites/sword-Sheet.png" id="3_s4ec8"]
+[ext_resource type="Texture2D" uid="uid://b7writavo8oj6" path="res://assets/sword-Sheet.png" id="3_s4ec8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g36yv"]
 size = Vector2(80, 24)
@@ -52,8 +52,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cp3m4")
 }],
-"loop": 0,
-"name": &"attack",
+"loop": 1,
+"name": &"default",
 "speed": 20.0
 }]
 
@@ -66,8 +66,9 @@ visibility_layer = 2
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_g36yv")
 
-[node name="Slash" type="AnimatedSprite2D" parent="." unique_id=907288855]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=907288855]
 position = Vector2(1.1920929e-07, 9.536743e-07)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_g36yv")
-animation = &"attack"
+autoplay = "default"
+frame_progress = 0.94561255

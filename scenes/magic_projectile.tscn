@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://7k7tylmamsdf"]
+
+[ext_resource type="Texture2D" uid="uid://b3tdim3jhkct5" path="res://assets/sprites/magic_projectile-Sheet.png" id="1_xexvj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6wpt"]
+atlas = ExtResource("1_xexvj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0yfi"]
+atlas = ExtResource("1_xexvj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqg8x"]
+atlas = ExtResource("1_xexvj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ewpi"]
+atlas = ExtResource("1_xexvj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c04l"]
+atlas = ExtResource("1_xexvj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ybvy"]
+atlas = ExtResource("1_xexvj")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g36yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6wpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0yfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqg8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ewpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c04l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ybvy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htlxk"]
+radius = 11.0
+
+[node name="MagicProjectile" type="CharacterBody2D" unique_id=622991439]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1591906670]
+sprite_frames = SubResource("SpriteFrames_g36yv")
+frame_progress = 0.21682714
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630243508]
+shape = SubResource("CircleShape2D_htlxk")

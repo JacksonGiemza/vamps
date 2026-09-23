@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://p0674pjcykle"]
+
+[ext_resource type="Script" uid="uid://1lil1sl2kmop" path="res://scripts/level_up.gd" id="1_sss2v"]
+
+[node name="LevelUp" type="CanvasLayer" unique_id=1015165173]
+script = ExtResource("1_sss2v")
+
+[node name="Panel" type="Panel" parent="." unique_id=1547247145]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1021899374]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -50.5
+offset_right = 94.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpeedButton" type="Button" parent="Panel/VBoxContainer" unique_id=256810509]
+layout_mode = 2
+text = "+10% Movement Speed"
+
+[node name="HealthButton" type="Button" parent="Panel/VBoxContainer" unique_id=169704891]
+layout_mode = 2
+text = "+20 Max Health"
+
+[node name="DamageButton" type="Button" parent="Panel/VBoxContainer" unique_id=567240451]
+layout_mode = 2
+text = "+10 Damage"

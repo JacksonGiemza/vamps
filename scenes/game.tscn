@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://hiek5s65fiae" path="res://scenes/stats_display.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://b7iej71nn3nb1" path="res://scenes/spawner.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://d0xssec4bbf5j" path="res://scenes/death_screen.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://b0yowtmc2evp7" path="res://scenes/item_display.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://p0674pjcykle" path="res://scenes/level_up.tscn" id="8_gee14"]
 
 [node name="game" type="Node2D" unique_id=424045531]
 script = ExtResource("1_iywne")
@@ -23,10 +25,19 @@ zoom = Vector2(2, 2)
 position = Vector2(40, -27)
 player = NodePath("../player")
 
+[node name="ItemDisplay" parent="." unique_id=1869807561 instance=ExtResource("7_u5sy4")]
+
 [node name="StatsDisplay" parent="." unique_id=338004301 node_paths=PackedStringArray("game", "player", "spawner") instance=ExtResource("4_iywne")]
 game = NodePath("..")
 player = NodePath("../player")
 spawner = NodePath("../spawner")
 
-[node name="DeathScreen" parent="." unique_id=1889033231 instance=ExtResource("6_p57ef")]
+[node name="DeathScreen" parent="." unique_id=1889033231 node_paths=PackedStringArray("game", "spawner", "player") instance=ExtResource("6_p57ef")]
 visible = false
+game = NodePath("..")
+spawner = NodePath("../spawner")
+player = NodePath("../player")
+
+[node name="LevelUp" parent="." unique_id=1015165173 node_paths=PackedStringArray("player") instance=ExtResource("8_gee14")]
+visible = false
+player = NodePath("../player")

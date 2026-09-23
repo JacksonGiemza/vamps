@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://60ksav3vnce1"]
+
+[ext_resource type="Texture2D" uid="uid://boperjt4u5efl" path="res://assets/sprites/rune1-Sheet.png" id="1_x1jr1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrrjd"]
+atlas = ExtResource("1_x1jr1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o43bi"]
+atlas = ExtResource("1_x1jr1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k73fb"]
+atlas = ExtResource("1_x1jr1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17ekr"]
+atlas = ExtResource("1_x1jr1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5edk3"]
+atlas = ExtResource("1_x1jr1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g36yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrrjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o43bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k73fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17ekr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5edk3")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g36yv"]
+radius = 22.022715
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1903480012]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=662328769]
+sprite_frames = SubResource("SpriteFrames_g36yv")
+autoplay = "default"
+frame_progress = 0.7949355
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1495251711]
+shape = SubResource("CircleShape2D_g36yv")

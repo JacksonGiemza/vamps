@@ -1,33 +1,65 @@
 extends Area2D
-
+@onready var sprite: AnimatedSprite2D = $Slash
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+
+# Weapon stats 
+@export var attack_interval: float = 1.0
+@export var attack_speed: float = 1.0
+@export var damage: int = 1
+
+var can_attack := true
+
+
 func _ready() -> void:
-	# 1. Keep the sword collision turned off until an attack starts
 	collision_shape.disabled = true
+	sprite.visible = false
 	
-	# 2. Connect the built-in signal to detect when something touches the sword
 	body_entered.connect(_on_body_entered)
+	sprite.animation_finished.connect(_on_animation_finished)
+	
+
+func _process(_delta: float) -> void:
+	if can_attack:
+		attack()
+
 
 func attack() -> void:
-	# Turn the collision on so it can register hits during the swing
+	can_attack = false
+	
+	# Show weapon and activate hitbox
+	sprite.visible = true
 	collision_shape.disabled = false
 	
-	# Create a quick visual swing animation
-	var tween = create_tween()
-	rotation = -0.5 
-	tween.tween_property(self, "rotation", 0.5, 0.15) 
-	
-	# Wait for the swing to end, then turn the collision back off
-	await tween.finished
-	collision_shape.disabled = false
-	rotation = 0.0
+	# Play attack animation
+	sprite.speed_scale = attack_speed
+	sprite.play("attack")
 
-@export var xp: PackedScene
-@export var min_xp_drops: int = 3
-@export var max_xp_drops: int = 6
+
+func _on_animation_finished() -> void:
+	# Attack is over
+	sprite.stop()
+	sprite.visible = false
+	collision_shape.disabled = true
+	
+	# Wait before allowing another attack
+	await get_tree().create_timer(attack_interval).timeout
+	
+	can_attack = true
+
 
 func _on_body_entered(body: Node2D) -> void:
-	# 3. Check if the body we bumped into is in our enemy group
 	if body.is_in_group("enemy"):
-		body.die() 
+		body.take_damage(damage)
+
+
+# -------------------------
+# Upgrade
+# -------------------------
+
+func upgrade_damage(amount: int) -> void:
+	damage += amount
+
+
+func upgrade_attack_speed(amount: float) -> void:
+	attack_interval *= amount

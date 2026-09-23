@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfqv1umd1dk58"]
 
-[ext_resource type="Texture2D" uid="uid://cxh4t50ybrr4t" path="res://assets/heart-Sheet.png" id="1_v30as"]
+[ext_resource type="Texture2D" uid="uid://cxh4t50ybrr4t" path="res://assets/sprites/heart-Sheet.png" id="1_v30as"]
 [ext_resource type="Script" uid="uid://y46e2rv8jkps" path="res://scripts/heart.gd" id="1_ycbwg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycbwg"]

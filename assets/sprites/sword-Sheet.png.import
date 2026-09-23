@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy7fti5n8ryfw"
-path="res://.godot/imported/xp.png-e64070124019d0096965b797fcbf66ad.ctex"
+uid="uid://b7writavo8oj6"
+path="res://.godot/imported/sword-Sheet.png-c7e1bf8dada8fe471c4120b07a7448bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/xp.png"
-dest_files=["res://.godot/imported/xp.png-e64070124019d0096965b797fcbf66ad.ctex"]
+source_file="res://assets/sprites/sword-Sheet.png"
+dest_files=["res://.godot/imported/sword-Sheet.png-c7e1bf8dada8fe471c4120b07a7448bc.ctex"]
 
 [params]
 

@@ -1,32 +1,51 @@
 extends CharacterBody2D
 
+# Enemy base stats
+const SPEED = 75.0
+var health: int = 1
 
-const SPEED = 200.0
 @export var player: CharacterBody2D
+@onready var enemy_sprite: AnimatedSprite2D = $enemySprite
 
 func _ready() -> void:
 	add_to_group("enemy") 
 
 
 func _physics_process(_delta: float) -> void:
+	
 	if player:
 		var direction: Vector2 = (player.global_position - global_position).normalized()
 		velocity = direction * SPEED
 		
+		if direction.x < 0:
+			enemy_sprite.flip_h = true
+		elif direction.x > 0:
+			enemy_sprite.flip_h = false
+			
 	else:
 		velocity = Vector2.ZERO
 		
 	move_and_slide()
+
+
+
+
+
+func take_damage(amount: int) -> void:
+	health = max(health - amount, 0)
 	
-	
-# Allows you to drag your XP.tscn file into the Inspector
+	if health == 0:
+		die()
+
 @export var xp: PackedScene
 @export var min_xp_drops: int = 3
 @export var max_xp_drops: int = 6
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 signal died
 
 func die() -> void:
+	
 	var drop_count := randi_range(min_xp_drops, max_xp_drops)
 	for i in range(drop_count):
 		spawn_xp()
@@ -34,7 +53,8 @@ func die() -> void:
 	var heart_spawn_chance = 0.10
 	if randf() < heart_spawn_chance:
 		spawn_heart()
-	
+	#death_sound.play()
+	#await death_sound.finished
 	died.emit()
 	queue_free()
 
