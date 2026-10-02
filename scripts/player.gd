@@ -7,6 +7,9 @@ var speed: float = 100.0
 const SWORD_SCENE = preload("res://scenes/sword.tscn")
 var sword: Node2D
 
+const STAFF_SCENE = preload("uid://crxcrx5wb6eap")
+var staff: Node2D
+
 # Player nodes
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var weapon_slot: Node2D = $WeaponSlot
@@ -44,6 +47,9 @@ func _ready() -> void:
 	#add_weapon(SWORD_SCENE)
 	sword = SWORD_SCENE.instantiate()
 	weapon_slot.add_child(sword)
+	
+	#staff = STAFF_SCENE.instantiate()
+	#weapon_slot.add_child(staff)
 	
 
 

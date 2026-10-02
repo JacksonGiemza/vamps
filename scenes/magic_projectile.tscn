@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://7k7tylmamsdf"]
 
+[ext_resource type="Script" uid="uid://blqrk6a50xdp7" path="res://scripts/magic_projectile.gd" id="1_a6wpt"]
 [ext_resource type="Texture2D" uid="uid://b3tdim3jhkct5" path="res://assets/sprites/magic_projectile-Sheet.png" id="1_xexvj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a6wpt"]
@@ -55,10 +56,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_htlxk"]
 radius = 11.0
 
-[node name="MagicProjectile" type="CharacterBody2D" unique_id=622991439]
+[node name="MagicProjectile" type="Area2D" unique_id=1319143008]
+script = ExtResource("1_a6wpt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1591906670]
 sprite_frames = SubResource("SpriteFrames_g36yv")
+autoplay = "default"
 frame_progress = 0.21682714
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630243508]

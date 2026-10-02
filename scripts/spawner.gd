@@ -16,7 +16,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	if player != null:
 		spawn_enemy_around_player()
-		#$Timer.wait_time -= 0.10 # really bad idea
+		$Timer.wait_time -= 0.001 # really bad idea
 
 func spawn_enemy_around_player() -> void:
 	var enemy = enemy_scene.instantiate()
@@ -40,3 +40,8 @@ var kills: int = 0
 func _on_enemy_died():
 	kills += 1
 	kills_changed.emit(kills)
+
+func _increase_health() -> void:
+	
+	enemy_scene.health += 1
+	enemy_scene.health_change.emit(player.health)
